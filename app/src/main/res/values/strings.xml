@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Nexus</string>
+    <string-array name="font_family_options">
+        <item>Arial</item>
+        <item>Times New Roman</item>
+        <item>Verdana</item>
+        <item>Courier New</item>
+        <item>Cursive</item>
+    </string-array>
+
+    <string-array name="font_style_options">
+        <item>Normal</item>
+        <item>Bold</item>
+        <item>Italic</item>
+        <item>Bold Italic</item>
+    </string-array>
+
+</resources>
