@@ -12,7 +12,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +29,7 @@ public class WebViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_webview);
+
 
         webBack = findViewById(R.id.web_back);
         webForward = findViewById(R.id.web_forward);
@@ -78,7 +78,7 @@ public class WebViewActivity extends AppCompatActivity {
 
 
         webView = findViewById(R.id.webView);
-        String url = getIntent().getStringExtra("url");
+        //String url = getIntent().getStringExtra("url");
 
 
         WebSettings webSettings = webView.getSettings();
@@ -88,7 +88,10 @@ public class WebViewActivity extends AppCompatActivity {
         webView.setWebViewClient(new WebViewClient());
 
 
-        webView.loadUrl(url);
+        //webView.loadUrl(url);
+
+        handleIntent(getIntent());
+
 
         ArrayAdapter<CharSequence> fontFamilyAdapter = ArrayAdapter.createFromResource(this,
                 R.array.font_family_options, android.R.layout.simple_spinner_item);
@@ -148,6 +151,20 @@ public class WebViewActivity extends AppCompatActivity {
 
         }
     }
+
+    private void handleIntent(Intent intent) {
+        String url = intent.getStringExtra("url");
+        if (url == null) {
+            // Check if the intent has a data URI (for deep links or external intents)
+            url = intent.getDataString();
+        }
+
+        // If a valid URL is provided, load it in the WebView
+        if (url != null && !url.isEmpty()) {
+            webView.loadUrl(url);
+        }
+    }
+
     private void updateScrollProgress() {
         int webContentHeight = (int) Math.floor(webView.getContentHeight() * webView.getScale());
         int visibleHeight = webView.getHeight();
@@ -206,6 +223,9 @@ public class WebViewActivity extends AppCompatActivity {
         
         webView.post(() -> webView.evaluateJavascript(jsCode, null));
     }
+
+
+
 
 }
 

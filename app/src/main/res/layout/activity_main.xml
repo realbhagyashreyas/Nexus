@@ -40,6 +40,16 @@
         android:layout_marginRight="20dp"
         android:id="@+id/clearurl"/>
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_mic_24"
+        app:layout_constraintTop_toTopOf="@id/logo"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="94dp"
+        android:layout_marginRight="60dp"
+        android:id="@+id/micIcon"/>
+
 
     <TextView
         android:id="@+id/quick"

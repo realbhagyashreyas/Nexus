@@ -15,4 +15,8 @@
         <item>Bold Italic</item>
     </string-array>
 
+    <string name="short_label_youtube">YouTube</string>
+    <string name="long_label_youtube">Open YouTube in browser</string>
+    <string name="disabled_message_youtube">YouTube shortcut is unavailable</string>
+
 </resources>
